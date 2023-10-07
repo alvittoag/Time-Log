@@ -30,7 +30,7 @@ export default function Navbar({ user }: { user?: IUser }) {
 
       {!isAuthPage && (
         <div className="flex items-center gap-4">
-          <h5>Hi, {user?.name}</h5>
+          <h5>Hi, {user?.user_name}</h5>
           <Button onClick={handleLogout}>Logout</Button>
         </div>
       )}

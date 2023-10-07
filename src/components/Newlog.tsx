@@ -54,9 +54,8 @@ export function NewLog() {
 
       const { error } = await supbase
         .from("logs")
-        .upsert({ ...log, date: dayjs(log.date).format("YYYY-MM-DD") })
-        .select("*")
-        .single();
+        .insert({ ...log, date: dayjs(log.date).format("YYYY-MM-DD") })
+        .select();
 
       if (!error) {
         setLogs(log, dayjs(log.date).format("YYYY-MM-DD"));

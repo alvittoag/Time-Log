@@ -35,7 +35,7 @@ export default async function page() {
 
       <NewLog />
 
-      <Calendar />
+      <Calendar logs={logs as Ilog[]} />
 
       <Logs logs={logs as Ilog[]} />
     </div>

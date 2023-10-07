@@ -10,11 +10,9 @@ import {
 // ** Import Other
 import dayjs from "dayjs";
 import { cn } from "@/lib/utils";
-import { useLogStore } from "@/store";
+import { Ilog } from "@/store";
 
-export default function Calendar() {
-  const { logs } = useLogStore();
-
+export default function Calendar({ logs }: { logs: Ilog[] }) {
   const getDateInMonth = (year = dayjs().year(), month = dayjs().month()) => {
     const startDate = dayjs().year(year).month(month).date(1);
     const endDate = startDate.endOf("month");
@@ -43,8 +41,7 @@ export default function Calendar() {
   return (
     <div className="border border-dashed flex flex-wrap gap-2 p-10 justify-center rounded-md">
       {getDateInMonth().map((date, index) => {
-        const log = logs[date];
-
+        const log = logs?.find((l) => l.date === date);
         return (
           <HoverCard key={index}>
             <HoverCardTrigger>
