@@ -19,7 +19,6 @@ export default function LoginComponent() {
         redirectTo: `${location.origin}/auth/callback`,
       },
     });
-    router.refresh();
   };
 
   return (
