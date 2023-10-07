@@ -16,7 +16,7 @@ export default function LoginComponent() {
     supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: `${location.origin}/auth/callback`,
+        redirectTo: `https://time-log-beta.vercel.app/auth/callback`,
       },
     });
     router.refresh();
